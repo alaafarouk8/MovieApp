@@ -25,7 +25,7 @@ function LoginForm() {
         });
       }
 
-      else if (password.length===0) {
+      else if (password.length === 0) {
         setError({
           ...error,
           password: "Empty Field , Please fill this field ",
@@ -54,13 +54,13 @@ function LoginForm() {
         });
       }
 
-      else if (email.length=== 0) {
+      else if (email.length === 0) {
         setError({
           ...error,
           email: "Empty Field , Please fill this field ",
         });
       }
-      else if ((validateEmail(email))){
+      else if ((validateEmail(email))) {
         setError({
           ...error,
           email: "",
@@ -79,41 +79,40 @@ function LoginForm() {
     e.preventDefault();
   };
   return (
-    <>   <div className="bg-dark min-h-screen" > 
-    <NavBar/>
-</div>
-    <div className="contianer bg-light text-dark" >
-      <h1 className="text-center text-dark" style={{ padding: 10 }}>Login In </h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="mb-3">
-          <label className="form-label">Email address</label>
-          <input type="email"
-            className="form-control"
-            name="email"
-            aria-describedby="emailHelp"
-            onChange={(e) => changeValue(e)}
-            required
-          />
-          <small className="text-danger"> {error.email} </small>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input type="password"
-            className="form-control"
-            name="password"
-            onChange={(e) => changeValue(e)}
-            required
-            minLength={8}
-          />
-          <small className="text-danger"> {error.password} </small>
-        </div>
-        <div className=" d-flex  justify-content-center " >
-                    <Button name="LogIn" />
-                </div>
+    <div className="bg-dark contianer" style={{height:948}} >
+      <NavBar />
+      <div className="text-light p-2 container-fluid justify-content-center" style={{ width: 400 }} >
+        <h1 className="text-center text-light p-5">Login In </h1>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="mb-3">
+            <label className="form-label">Email address</label>
+            <input type="email"
+              className="form-control"
+              name="email"
+              aria-describedby="emailHelp"
+              onChange={(e) => changeValue(e)}
+              required
+            />
+            <small className="text-danger"> {error.email} </small>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input type="password"
+              className="form-control"
+              name="password"
+              onChange={(e) => changeValue(e)}
+              required
+              minLength={8}
+            />
+            <small className="text-danger"> {error.password} </small>
+          </div>
+          <div className=" d-flex  justify-content-center " >
+            <Button name="LogIn" />
+          </div>
 
-      </form>
+        </form>
+      </div>
     </div>
-    </>
   );
 }
 export default LoginForm;

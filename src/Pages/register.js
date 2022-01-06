@@ -161,12 +161,11 @@ function SignUp() {
         e.preventDefault();
     };
     return (
-        <>
-        <div className="bg-dark min-h-screen" > 
-		     	<NavBar/>
-		</div>
-        <div className="contianer-fuild bg-light text-dark" >
-            <h1 className="text-center text-dark" style={{ padding: 10 }}>Sign Up</h1>
+        
+    <div className="bg-dark contianer" style={{height:948}} >
+      <NavBar />
+      <div className="text-light p-2 container-fluid justify-content-center" style={{ width: 400 }} >
+        <h1 className="text-center text-light p-5">Sign Up </h1>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="mb-3">
                     <label className="form-label">Name</label>
@@ -230,7 +229,7 @@ function SignUp() {
 
             </form>
         </div>
-        </>
+        </div>
     );
 }
 export default SignUp;

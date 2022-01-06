@@ -4,7 +4,7 @@ function NavBar() {
     return (
         <div className="d-flex shadow-lg rounded" style={{height:100 ,paddingLeft:100}}>
             <Link to="/" className="text-decoration-none" style={{padding:20}} >
-                <div className="text-light fs-2">
+            <div className="text-warning fs-2">
                     Movies
                 </div>
             </Link>
@@ -19,7 +19,7 @@ function NavBar() {
                 </div>
             </Link>
             <Link to="/login" className="text-decoration-none" style={{padding:20}}>
-            <div className="text-light fs-2">
+            <div className="text-warning fs-2">
                     Login
                 </div>
             </Link>
