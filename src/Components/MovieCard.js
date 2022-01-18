@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { addFavouriteAction, RemoveFromFavouriteAction } from '../redux/actions';
 function MovieCard({ movie }) {
+    const { favourite } = useSelector((state) => state.movies);
+	const dispatch = useDispatch();
     return (
 
         <div className="card bg-dark text-white mb-5">
@@ -16,7 +20,20 @@ function MovieCard({ movie }) {
                     <p >⭐{movie.vote_average}/10</p>
                 </div>
             </Link>
-
+            <div className="card-body text-center">
+            <button
+					onClick={() =>
+						dispatch(
+							favourite.find((m) => m.id == movie.id)
+								? RemoveFromFavouriteAction(movie.id)
+								: addFavouriteAction(movie)
+						)
+					}
+					className={`btn btn-` + (favourite.find((m) => m.id == movie.id) ? `danger` : `warning`)}
+				>
+					{favourite.find((m) => m.id == movie.id) ? `Remove From Favourite` : `Add To Favourite`}
+				</button>
+                </div>
         </div>
     );
 }

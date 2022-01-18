@@ -14,6 +14,7 @@ function App() {
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<LoginForm />} />
+
       <Route exact path="/movie/:movieId" element={<MoviePage />} />
     </Routes>
   </BrowserRouter>

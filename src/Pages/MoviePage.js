@@ -20,7 +20,7 @@ function MoviePage() {
     }, [movieId]);
 
     return (
-        <div className="bg-dark contianer "  style={{height:948}}>
+        <div className="bg-dark contianer" style={{height:948}}>
             <NavBar />
             <div className="container-fluid p-5 d-flex justify-content-center">
                 <div className="row">
@@ -28,10 +28,9 @@ function MoviePage() {
                         <img
                             src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
                             alt="poster"
-
                         />
                     </div>
-                     <div className="col-md-6 text-light ">
+                    <div className="col-md-6 text-light ">
                         <h1 className="text-warning">{movie.title}</h1>
                         <br></br>
                         <h4 className="text-light">{movie.tagline}</h4>
