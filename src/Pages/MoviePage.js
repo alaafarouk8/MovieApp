@@ -1,8 +1,12 @@
 import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux';
+import { addFavouriteAction, RemoveFromFavouriteAction } from '../redux/actions';
 import NavBar from "../Components/Navbar";
 function MoviePage() {
+    const { favourite } = useSelector((state) => state.movies);
+	const dispatch = useDispatch();
     const { movieId } = useParams();
     const [movie, setMovie] = useState([]);
 
@@ -20,7 +24,7 @@ function MoviePage() {
     }, [movieId]);
 
     return (
-        <div className="bg-dark contianer" style={{height:948}}>
+        <div className="bg-dark contianer" style={{ height: 948 }}>
             <NavBar />
             <div className="container-fluid p-5 d-flex justify-content-center">
                 <div className="row">
@@ -58,6 +62,19 @@ function MoviePage() {
                         <h5>
                             {movie.overview}
                         </h5>
+                        <br></br>
+                        <button
+                            onClick={() =>
+                                dispatch(
+                                    favourite.find((m) => m.id == movie.id)
+                                        ? RemoveFromFavouriteAction(movie.id)
+                                        : addFavouriteAction(movie)
+                                )
+                            }
+                            className={`btn btn-` + (favourite.find((m) => m.id == movie.id) ? `danger` : `warning`)}
+                        >
+                            {favourite.find((m) => m.id == movie.id) ? `Remove From Favourite` : `Add To Favourite`}
+                        </button>
                     </div>
                 </div>
 

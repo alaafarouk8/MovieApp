@@ -3,8 +3,6 @@ import { Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import NavBar from "../Components/Navbar";
 import MovieCard from "../Components/MovieCard";
-import { axiosInstance } from "../network/index";
-
 function Movies() {
 	const [movies, setMovies] = useState([])
 	const [pageNo, setPageNo] = useState(1);
