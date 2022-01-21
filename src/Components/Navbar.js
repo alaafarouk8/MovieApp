@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import ChangeLanguage from "./ChangeLanguage";
 
 function NavBar() {
     return (
@@ -8,11 +9,14 @@ function NavBar() {
                     Movies
                 </div>
             </Link>
-            <Link to="/favorites" className="text-decoration-none" style={{paddingRight:1000, paddingTop:20}}>
+            <Link to="/favorites" className="text-decoration-none" style={{paddingRight:500, paddingTop:20}}>
             <div className="text-light fs-2">
                     Favorites
                 </div>
             </Link>
+            <div style={{paddingRight:500, paddingTop:20}}>
+                <ChangeLanguage/>
+            </div>
             <Link to="/signup" className="text-decoration-none" style={{paddingTop:20}}>
             <div className="text-light fs-2">
                     Sign Up

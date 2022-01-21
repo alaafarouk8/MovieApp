@@ -1,6 +1,9 @@
 import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import {languageContext} from "../contexts/languageContext"
+
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavouriteAction, RemoveFromFavouriteAction } from '../redux/actions';
 import NavBar from "../Components/Navbar";
@@ -9,6 +12,7 @@ function MoviePage() {
 	const dispatch = useDispatch();
     const { movieId } = useParams();
     const [movie, setMovie] = useState([]);
+	const { contextLang, setContextLang } = useContext(languageContext);
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=a00ba3219f26860b2e210388c45e126a`)
@@ -24,8 +28,10 @@ function MoviePage() {
     }, [movieId]);
 
     return (
-        <div className="bg-dark contianer" style={{ height: 948 }}>
+        <div className="bg-dark contianer" >
             <NavBar />
+            <h1 className='text-warning'>{contextLang === "en" ? "Movie Details" :  "تفاصيل الفيلم" }</h1>
+
             <div className="container-fluid p-5 d-flex justify-content-center">
                 <div className="row">
                     <div className="col-md-6 " style={{ paddingLeft: 350 }}>
